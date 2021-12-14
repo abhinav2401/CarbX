@@ -5,8 +5,10 @@ const router=express.Router();
 
 const userControllers=require("../controllers/user-controllers");
 
+//User login route
 router.post("/login",userControllers.login);
 
+//User signup route
 router.post("/signup",
 [
     check("name").not().isEmpty(),
@@ -16,8 +18,10 @@ router.post("/signup",
 ],
 userControllers.signup);
 
+//Get route to get the user information
 router.get("/:uid",userControllers.getUser);
 
+//Patch route to update user information
 router.patch("/:uid",
 [
     check("email").not().isEmpty(),
@@ -26,6 +30,7 @@ router.patch("/:uid",
 ],
 userControllers.updateUser);
 
+//Post route to add the nutritional information to a user account
 router.post("/:uid",
 [
     check("date").not().isEmpty(),

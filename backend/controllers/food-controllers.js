@@ -1,8 +1,9 @@
 const{validationResult}=require("express-validator");
 
-const HttpError=require("../models/http-error");
-const Food=require("../models/food");
+const HttpError=require("../models/http-error"); //Error model
+const Food=require("../models/food"); //Food schema for database
 
+//To display all food items
 async function getFoodItems(req,res,next){
     let foundFoodItems;
     try{
@@ -14,11 +15,14 @@ async function getFoodItems(req,res,next){
         return next(new HttpError("No food items found",404));
     }
     res.json({
-        foodItems: foundFoodItems.map(food=>food.toObject({getters:true}))
+        //Returning MongoDB documents as javascript objects
+        foodItems: foundFoodItems.map(food=>food.toObject({getters:true})) 
     });
 }
 
+//To add the new food item
 async function addFoodItem(req,res,next){
+     //The errors in input data are caught in 'errors' variable after passing validation checks
     const errors=validationResult(req);
     if(!errors.isEmpty()){
         return next(new HttpError("Invalid inputs passed",422));

@@ -1,3 +1,4 @@
+//NUTRIENT SCHEMA to store the nutrional information related to single user
 const mongoose=require("mongoose");
 
 const nutrientSchema=new mongoose.Schema({

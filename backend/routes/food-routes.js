@@ -5,8 +5,10 @@ const router=express.Router();
 
 const foodControllers=require("../controllers/food-controllers");
 
+//Get route to get information of all the food items
 router.get("/",foodControllers.getFoodItems);
 
+//Post route to add a new food item
 router.post("/newitem",
 [
     check("title").not().isEmpty(),

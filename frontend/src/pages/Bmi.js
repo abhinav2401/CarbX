@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, url } from "react-bootstrap";
 import './Bmi.css'
 
+// function for bmi calculation
 
 const Bmi = () => {
     const [bmi, setBmi] = useState();
@@ -30,20 +31,23 @@ const Bmi = () => {
                     <div className="bmiDiv" >
                         <h1 className="text-center">BMI Calculator</h1>
 
-                        <div class="card mx-3 " style={{ width: "20rem" }}>
+                        <div class="card mx-3 gcard" style={{ width: "20rem", backgroundColor: "#FF416C", padding: "33px", borderRadius: '20px', marginTop: '28px' }}>
                             <div class="card-body">
+
+                                {/* Height and weight input fields */}
+
                                 <Col>
                                     <Row>
-                                        <h5>Height:</h5>
-                                        <input
+                                        <h5 style={{ color: "white" }}>Height:</h5>
+                                        <input style={{ borderRadius: "50px" }}
                                             type="text"
                                             onChange={(e) => setHeight(e.target.value)}
                                             placeholder="height in cm"
                                         />
                                     </Row>
                                     <Row>
-                                        <h5>Weight:</h5>
-                                        <input
+                                        <h5 style={{ color: "white" }}>Weight:</h5>
+                                        <input style={{ borderRadius: "50px" }}
                                             type="text"
                                             onChange={(e) => setWeight(e.target.value)}
                                             placeholder="Weight in kg"
@@ -51,9 +55,11 @@ const Bmi = () => {
                                     </Row>
                                 </Col>
 
-                                <button class="btn btn-primary my-2" onClick={handleBmi}>Calculate</button>
-                                <h5>{bmi}</h5>
-                                <h6>{info}</h6>
+                                {/* Button to calculate bmi */}
+
+                                <button class="ghost" onClick={handleBmi}>Calculate</button>
+                                <h5 style={{ color: "white" }}>{bmi}</h5>
+                                <h6 style={{ color: "white" }}>{info}</h6>
                             </div>
                         </div>
                     </div>

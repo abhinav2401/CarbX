@@ -1,0 +1,19 @@
+/* Styling the food-item card */
+
+.MainCard {
+  padding: 8vh;
+}
+.CardsTitle {
+  font-family: "Source Code Pro", monospace;
+}
+.SingleCard:hover {
+  transform: scale(1.05);
+}
+
+.Title {
+  text-align: center;
+}
+
+/* .Temp {
+  background-color: yellow;
+} */
